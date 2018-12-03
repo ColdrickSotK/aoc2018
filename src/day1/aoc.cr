@@ -1,6 +1,13 @@
-# TODO: Write documentation for `Aoc`
-module Day1
-  VERSION = "0.1.0"
+require "file"
 
-  # TODO: Put your code here
+def load(path : String)
+  content = File.open(path) do |file|
+    file.gets_to_end
+  end
+  return content.strip().split("\n").map do |val|
+    val.to_i
+  end
 end
+
+data = load(ARGV[0])
+puts data.sum 0
